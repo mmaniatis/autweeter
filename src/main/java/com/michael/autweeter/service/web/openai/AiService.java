@@ -52,9 +52,9 @@ public class AiService {
         System.out.println("Starting to generate the tweet based on all the previous summaries...");
 
         List<ChatMessage> messages = new ArrayList<>();
-        messages.add(new ChatMessage("system", "You are a gambling focused sports twitter journalist. " +
-                "You will use the following inputs to generate a tweet. Tweets can only be 280 characters." +
-                "Make sure that the tweet contains the most important/mentioned items from all the inputs." +
+        messages.add(new ChatMessage("system", "You are a funny sports twitter journalist. " +
+                "You will use the following inputs to generate a tweet. Ensure your response is less than 281 characters total length." +
+                "Make sure that the tweet is less than 281 characters total" +
                 "Do not give one until you receive the phrase 'ALL PARTS SENT'."));
 
         texts.forEach(input -> messages.add(new ChatMessage("user", input)));
@@ -69,7 +69,7 @@ public class AiService {
                 .getMessage().getContent();
 
         System.out.println("Finished generating tweet...");
-        System.out.println("Finished generating ####...");
+        System.out.println("##############################");
         System.out.println(result);
         return result;
     }

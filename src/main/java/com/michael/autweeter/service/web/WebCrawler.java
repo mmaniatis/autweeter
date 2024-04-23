@@ -31,7 +31,7 @@ public abstract class WebCrawler {
                 .map(link -> link.getAttribute("href"))
                 .filter(getAttributeFilter()).toList();
 
-        IntStream.range(0, 6).forEach(i -> { //todo: try catch in each
+        IntStream.range(0, attributesToSearch.size()).forEach(i -> { //todo: try catch in each
             System.out.printf("Currently fetching %s...\n", attributesToSearch.get(i));
             result.add(bodyTextFetcher.getTextFromAttribute(webDriver, attributesToSearch.get(i)));
             System.out.printf("Completed fetching %s...\n", attributesToSearch.get(i));

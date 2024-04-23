@@ -28,7 +28,7 @@ public class TwitterService implements SocialService {
         //Execute..
 //        HttpResponse response = httpClient.execute(httpGet);
 
-    }
+
         throw new Exception("Not implemented yet!");
     }
 }
