@@ -15,6 +15,8 @@ public class CrawlerConfiguration {
     @Bean
     WebDriver chromeDriver() {
         var options = new ChromeOptions();
+        System.setProperty("webdriver.chrome.driver",
+                getClass().getClassLoader().getResource("chromedriver").getPath());
         options.addArguments("--window-size=1920x1080");
         options.addArguments("--incognito");
         options.addArguments("--headless");

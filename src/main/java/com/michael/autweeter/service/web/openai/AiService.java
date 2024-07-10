@@ -52,10 +52,10 @@ public class AiService {
         System.out.println("Starting to generate the tweet based on all the previous summaries...");
 
         List<ChatMessage> messages = new ArrayList<>();
-        messages.add(new ChatMessage("system", "You are a funny sports twitter journalist. " +
-                "You will use the following inputs to generate a tweet. Ensure your response is less than 281 characters total length." +
-                "Make sure that the tweet is less than 281 characters total" +
-                "Do not give one until you receive the phrase 'ALL PARTS SENT'."));
+        messages.add(new ChatMessage("system", "You are a twitter golf journalist keeping people informed on critical golf news." +
+                "You will use the following inputs to generate a tweet that is 281 characters or less. Generate 5 tweets that encapsulate all the article inputs you have been given." +
+                "Separate the tweets with the delimiter ';;'." +
+                "Do not give the tweets until you receive the phrase 'ALL PARTS SENT'."));
 
         texts.forEach(input -> messages.add(new ChatMessage("user", input)));
         messages.add(new ChatMessage("user", "ALL PARTS SENT."));
@@ -65,12 +65,12 @@ public class AiService {
                 .messages(messages)
                 .build();
 
-        String result = service.createChatCompletion(chatCompletionRequest).getChoices().get(0)
-                .getMessage().getContent();
+        String[] result = service.createChatCompletion(chatCompletionRequest).getChoices().get(0)
+                .getMessage().getContent().split(";;");
 
         System.out.println("Finished generating tweet...");
         System.out.println("##############################");
-        System.out.println(result);
-        return result;
+        System.out.println(String.join("\n", result));
+        return String.join("\n", result);
     }
 }

@@ -23,8 +23,7 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter")
-	implementation("org.seleniumhq.selenium:selenium-java:4.19.1")
-	// https://mvnrepository.com/artifact/com.theokanning.openai-gpt3-java/service
+	implementation("org.seleniumhq.selenium:selenium-java:4.22.0")
 	implementation("com.theokanning.openai-gpt3-java:service:0.18.2")
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
